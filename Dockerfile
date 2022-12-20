@@ -1,7 +1,7 @@
 FROM mambaorg/micromamba:1.1.0
 
 # Get the requirements
-COPY --chown=$MAMBA_USER:$MAMBA_USER ./environment.yml /tmp/environment.yml
+COPY ./environment.yml /tmp/environment.yml
 
 # Install and activate it
 RUN micromamba install --yes --file /tmp/environment.yml && \
