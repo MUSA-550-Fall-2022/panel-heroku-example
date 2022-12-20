@@ -1,7 +1,6 @@
-name: base
+name: musa-550-fall-2022
 channels:
   - conda-forge
-  - defaults
 
 dependencies:
   - python=3.9
