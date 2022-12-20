@@ -5,6 +5,7 @@ COPY . /app
 WORKDIR /app
 
 RUN ls .
+RUN cat environment.yml
 
 # Install and activate it
 RUN micromamba install --yes --file environment.yml && \
