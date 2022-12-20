@@ -1,0 +1,5 @@
+build:
+  docker:
+    web: Dockerfile
+run:
+  web: panel serve --address="0.0.0.0" --port=$PORT app.ipynb --allow-websocket-origin=gentle-earth-18442.herokuapp.com
