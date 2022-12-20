@@ -4,8 +4,10 @@ FROM mambaorg/micromamba:1.1.0
 COPY . /app
 WORKDIR /app
 
+RUN ls .
+
 # Install and activate it
-RUN micromamba install --yes --file /app/environment.yml && \
+RUN micromamba install --yes --file environment.yml && \
   micromamba clean --all --yes
 ARG MAMBA_DOCKERFILE_ACTIVATE=1 
 
