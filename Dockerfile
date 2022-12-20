@@ -1,5 +1,8 @@
 FROM mambaorg/micromamba:1.1.0
 
+ENV MAMBA_USER=mambauser
+USER $MAMBA_USER
+
 # Get the requirements
 COPY --chown=$MAMBA_USER:$MAMBA_USER ./environment.yml /tmp/environment.yml
 
