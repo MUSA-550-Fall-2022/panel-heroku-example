@@ -33,10 +33,10 @@ heroku stack:set container
 ```--allow-websocket-origin=APP_NAME.herokuapp.com```
 
 
-Also, make sure the nanme of the 
+Also, make sure the name of the 
 
 ```
-web: panel serve --address="0.0.0.0" --port=$PORT app2.ipynb --allow-websocket-origin=app-name.herokuapp.com
+web: panel serve --address="0.0.0.0" --port=$PORT app.ipynb --allow-websocket-origin=app-name.herokuapp.com
 ```
 
 In this repository, I have specified "APP_NAME" as "gentle-earth-18442" but you should replace your "app-name" with whatever you want yours to be.
