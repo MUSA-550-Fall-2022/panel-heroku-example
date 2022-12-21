@@ -10,3 +10,5 @@ FROM gcr.io/distroless/base-debian10
 
 COPY --from=conda /env /env
 COPY --from=conda /pkg /pkg
+WORKDIR /pkg
+RUN ls
