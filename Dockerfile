@@ -1,18 +1,12 @@
-FROM mambaorg/micromamba:1.1.0
+# Container for building the environment
+FROM condaforge/mambaforge:4.9.2-5 as conda
 
-COPY . /app
-WORKDIR /app
+COPY environment.yml .
+RUN mamba create --copy -p /env --file environment.yml && conda clean -afy
+COPY . /pkg
+RUN conda run -p /env python -m pip install --no-deps /pkg
 
-RUN micromamba install --yes --file ./environment.yml && \
-  micromamba clean --all --yes
+# Distroless for execution
+FROM gcr.io/distroless/base-debian10
 
-# Get the requirements
-# COPY --chown=$MAMBA_USER:$MAMBA_USER ./environment.yml /tmp/environment.yml
-
-# # Install and activate it
-
-# ARG MAMBA_DOCKERFILE_ACTIVATE=1 
-
-# ADD . /app
-# WORKDIR /app
-
+COPY --from=conda /env /env
