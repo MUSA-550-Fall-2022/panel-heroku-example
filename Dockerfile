@@ -1,8 +1,8 @@
 # Container for building the environment
-FROM condaforge/mambaforge:4.9.2-5 as conda
+FROM condaforge/mambaforge:latest as conda
 
 COPY environment.yml .
-RUN mamba create --copy -p /env --file environment.yml && conda clean -afy
+RUN mamba env create -p /env --file environment.yml && conda clean -afy
 COPY . /pkg
 RUN conda run -p /env python -m pip install --no-deps /pkg
 
